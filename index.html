@@ -7,6 +7,29 @@
 
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* 🔥 Premium Animated Fire Border */
+    .fire-border {
+      background: linear-gradient(
+        45deg,
+        #ff0000,
+        #ff7300,
+        #fffb00,
+        #ff7300,
+        #ff0000
+      );
+      background-size: 300% 300%;
+      animation: fireMove 6s linear infinite;
+      box-shadow: 0 0 40px rgba(255, 100, 0, 0.6);
+    }
+
+    @keyframes fireMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+  </style>
 </head>
 
 <body class="bg-gray-900 text-white font-sans">
@@ -45,44 +68,37 @@
     </div>
   </section>
 
- <section class="py-16 bg-black text-center">
-  <h2 class="text-3xl font-bold mb-8 text-blue-400">
-    Google Drive Video Test
-  </h2>
+  <!-- 🔥 Premium Featured Video Section -->
+  <section class="py-24 bg-black text-center relative overflow-hidden">
+    <h2 class="text-4xl md:text-5xl font-bold mb-14 text-blue-400">
+      Featured Video
+    </h2>
 
-  <div class="flex justify-center">
-    <iframe
-      src="https://drive.google.com/file/d/1wD6MGzapCcwXRIzQ5Mio26cyTHBCdqXE/preview"
-      width="800"
-      height="450"
-      allow="autoplay"
-      class="rounded-xl">
-    </iframe>
-  </div>
-</section>
+    <div class="flex justify-center">
+      <div class="fire-border relative p-[4px] rounded-3xl">
+        
+        <div class="relative bg-gray-900 rounded-3xl overflow-hidden shadow-2xl
+                    transition-transform duration-500 hover:scale-105">
 
-  <section class="py-20 bg-gradient-to-b from-gray-900 to-black text-center">
-  <h2 class="text-3xl md:text-4xl font-bold mb-10 text-blue-400">
-    Featured Video
-  </h2>
+          <div class="w-full max-w-4xl aspect-video">
+            <iframe
+              class="w-full h-full"
+              src="https://www.youtube-nocookie.com/embed/iAtoZar5W58?rel=0&modestbranding=1"
+              title="Featured YouTube video"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          </div>
 
-  <div class="flex justify-center">
-    <div class="relative w-full max-w-4xl aspect-video rounded-2xl overflow-hidden shadow-2xl border border-gray-700">
-      <iframe 
-        class="w-full h-full"
-        src="https://www.youtube.com/embed/iAtoZar5W58?rel=0&modestbranding=1&controls=1"
-        title="Featured YouTube video"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-      </iframe>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <p class="mt-6 text-gray-400 max-w-xl mx-auto">
-    Check out this video demonstration (embedded via YouTube).
-  </p>
-</section>
+    <p class="mt-6 text-gray-400 max-w-xl mx-auto">
+      Premium animated fire-border YouTube embed.
+    </p>
+  </section>
 
   <!-- Skills Section -->
   <section class="bg-gray-800 py-16">
