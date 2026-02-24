@@ -135,17 +135,21 @@
 
   <!-- Visitor Counter Script (Correct Placement) -->
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      fetch("https://api.countapi.xyz/hit/karthikchukkala.tech/visits")
-        .then(res => res.json())
-        .then(res => {
-          document.getElementById("visitor-count").innerText = res.value;
-        })
-        .catch(() => {
-          document.getElementById("visitor-count").innerText = "0";
-        });
-    });
-  </script>
+document.addEventListener("DOMContentLoaded", async function () {
+  const counterElement = document.getElementById("visitor-count");
+
+  try {
+    const response = await fetch(
+      "https://api.countapi.xyz/hit/karthikchukkala/portfolio"
+    );
+    const data = await response.json();
+    counterElement.innerText = data.value;
+  } catch (error) {
+    console.error("Counter error:", error);
+    counterElement.innerText = "Error";
+  }
+});
+</script>
 
 </body>
 </html>
