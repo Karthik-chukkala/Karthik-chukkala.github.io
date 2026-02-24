@@ -22,6 +22,8 @@
       background-size: 300% 300%;
       animation: fireMove 6s linear infinite;
       box-shadow: 0 0 40px rgba(255, 100, 0, 0.6);
+      padding: 4px;
+      border-radius: 24px;
     }
 
     @keyframes fireMove {
@@ -69,28 +71,27 @@
   </section>
 
   <!-- 🔥 Premium Featured Video Section -->
-  <section class="py-24 bg-black text-center relative overflow-hidden">
+  <section class="py-24 bg-black text-center">
     <h2 class="text-4xl md:text-5xl font-bold mb-14 text-blue-400">
       Featured Video
     </h2>
 
     <div class="flex justify-center">
-      <div class="fire-border relative p-[4px] rounded-3xl">
-        
-        <div class="relative bg-gray-900 rounded-3xl overflow-hidden shadow-2xl
-                    transition-transform duration-500 hover:scale-105">
-
-          <div class="w-full max-w-4xl aspect-video">
-            <iframe
-              class="w-full h-full"
-              src="https://www.youtube-nocookie.com/embed/iAtoZar5W58?rel=0&modestbranding=1"
-              title="Featured YouTube video"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen>
-            </iframe>
+      <div class="w-full max-w-4xl">
+        <div class="fire-border">
+          <div class="bg-gray-900 rounded-3xl overflow-hidden shadow-2xl
+                      transition-transform duration-500 hover:scale-105">
+            <div class="aspect-video w-full">
+              <iframe
+                class="w-full h-full"
+                src="https://www.youtube-nocookie.com/embed/iAtoZar5W58?rel=0&modestbranding=1"
+                title="Featured YouTube video"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+              </iframe>
+            </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -104,7 +105,6 @@
   <section class="bg-gray-800 py-16">
     <div class="text-center">
       <h3 class="text-3xl font-bold mb-8 text-blue-400">Skills</h3>
-
       <div class="flex flex-wrap justify-center gap-4">
         <span class="bg-gray-700 px-4 py-2 rounded-lg">Java</span>
         <span class="bg-gray-700 px-4 py-2 rounded-lg">Python</span>
@@ -116,10 +116,36 @@
     </div>
   </section>
 
+  <!-- Visitor Counter -->
+  <section class="py-12 bg-black text-center">
+    <div class="bg-gray-800 inline-block px-8 py-6 rounded-2xl shadow-xl">
+      <h3 class="text-xl font-semibold text-blue-400 mb-2">
+        Website Visitors
+      </h3>
+      <p class="text-3xl font-bold text-white">
+        <span id="visitor-count">Loading...</span>
+      </p>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer class="text-center py-6 bg-gray-900 text-gray-500">
     © 2026 Karthik Chukkala | Built with Tailwind CSS
   </footer>
+
+  <!-- Visitor Counter Script (Correct Placement) -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      fetch("https://api.countapi.xyz/hit/karthikchukkala.tech/visits")
+        .then(res => res.json())
+        .then(res => {
+          document.getElementById("visitor-count").innerText = res.value;
+        })
+        .catch(() => {
+          document.getElementById("visitor-count").innerText = "0";
+        });
+    });
+  </script>
 
 </body>
 </html>
