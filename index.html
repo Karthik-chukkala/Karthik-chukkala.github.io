@@ -168,6 +168,33 @@
  
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script>
+async function searchStudent() {
 
+  const ht = document.getElementById("hallticket").value;
+
+  const res = await fetch(
+    `http://127.0.0.1:8000/student?hallticket=${ht}`
+  );
+
+  const data = await res.json();
+
+  const resultDiv = document.getElementById("result");
+
+  if (data.message) {
+    resultDiv.innerHTML = `<p class="text-red-400">${data.message}</p>`;
+    return;
+  }
+
+  resultDiv.innerHTML = `
+    <p><b>Name:</b> ${data["Applicant Name"]}</p>
+    <p><b>Rank:</b> ${data["Rank"]}</p>
+    <p><b>College:</b> ${data["College"]}</p>
+    <p><b>Branch:</b> ${data["Branch"]}</p>
+    <p><b>Category:</b> ${data["Allotted Category"]}</p>
+    <p><b>Region:</b> ${data["Region"]}</p>
+  `;
+}
+</script>
 </body>
 </html>
